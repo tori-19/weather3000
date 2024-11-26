@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Weather Information</h1>
+        <!-- Search Form -->
+        <form method="POST" action="/">
+            <label for# Replace with your OpenWeatherMap API key="city">Enter city name:</label>
+            <input type="text" id="city" name="city" required>
+            <button type="submit">Get Weather</button>
+        </form>
+
+        <!-- Weather Info -->
+        {% if weather_data %}
+        <div class="weather-info">
+            <h2>Weather in {{ weather_data['name'] }}</h2>
+            <p>Temperature: {{ weather_data['main']['temp'] }}°C</p>
+            <p>Condition: {{ weather_data['weather'][0]['description'] }}</p>
+            <p>Humidity: {{ weather_data['main']['humidity'] }}%</p>
+            <p>Wind Speed: {{ weather_data['wind']['speed'] }} m/s</p>
+        </div>
+        {% elif error %}
+        <div class="error">
+            <p>{{ error }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
