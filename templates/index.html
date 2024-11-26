@@ -11,7 +11,7 @@
         <h1>Weather Information</h1>
         <!-- Search Form -->
         <form method="POST" action="/">
-            <label for# Replace with your OpenWeatherMap API key="city">Enter city name:</label>
+            <label for="city">Enter city name:</label>
             <input type="text" id="city" name="city" required>
             <button type="submit">Get Weather</button>
         </form>
@@ -20,6 +20,8 @@
         {% if weather_data %}
         <div class="weather-info">
             <h2>Weather in {{ weather_data['name'] }}</h2>
+            <!-- Display the weather icon -->
+            <img src="{{ icon_url }}" alt="Weather Icon" width="100" height="100">
             <p>Temperature: {{ weather_data['main']['temp'] }}°C</p>
             <p>Condition: {{ weather_data['weather'][0]['description'] }}</p>
             <p>Humidity: {{ weather_data['main']['humidity'] }}%</p>
