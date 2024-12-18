@@ -1,7 +1,7 @@
 **Installation**
 1. Clone the Repository:
 
-   git clone https://github.com/your-username/weather-app.git
+   git clone https://github.com/tori-19/weather-app.git
    cd weather-app
 
 2. install Dependencies: Install Flask using pip:
